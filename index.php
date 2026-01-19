@@ -432,12 +432,35 @@ All prices are inclusive of VAT.  Please note our prices and products may change
 $(document).ready(function () {
 
 // Listen for calendar.dateSelected event from iframe via postMessage
+var selectedCalendarDate = null;
+
 window.addEventListener('message', function(e) {
 	if (e.data && e.data.type === 'calendar.dateSelected') {
+		selectedCalendarDate = e.data.date;
+
 		// Enable/disable buttons based on availability
 		$('#select-full-day-wedding').prop('disabled', !e.data.isFullDayAvailable);
 		$('#select-twilight-wedding').prop('disabled', !e.data.isTwilightAvailable);
 		$('#select-micro-wedding').prop('disabled', !e.data.isMicroAvailable);
+	}
+});
+
+// Button click handlers
+$('#select-full-day-wedding').click(function() {
+	if (selectedCalendarDate) {
+		window.location.href = 'index.php?date=' + encodeURIComponent(selectedCalendarDate);
+	}
+});
+
+$('#select-twilight-wedding').click(function() {
+	if (selectedCalendarDate) {
+		window.location.href = 'twilight.php?date=' + encodeURIComponent(selectedCalendarDate);
+	}
+});
+
+$('#select-micro-wedding').click(function() {
+	if (selectedCalendarDate) {
+		window.location.href = 'micro.php?date=' + encodeURIComponent(selectedCalendarDate);
 	}
 });
 
