@@ -1,4 +1,5 @@
-<?
+<?php
+
 //die();
 error_reporting(0);
 

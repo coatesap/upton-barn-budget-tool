@@ -1,4 +1,5 @@
-<?
+<?php
+
 //die();
 error_reporting(0);
 //include "includes/dbconn.php";
@@ -186,7 +187,7 @@ color: #9a785c;
 <div id="print-text">
 <div class="col-md-6">
     <p>We thank you for taking the time to create your personalised Budget Plan. Please save this to bring along to any subsquent meetings at Upton Barn or with your chosen caterer.</p>
-    <? // <p>This quote is valid for 30 days from <span id="print-date"></span>.</p> ?>
+    <?php // <p>This quote is valid for 30 days from <span id="print-date"></span>.</p> ?>
     <p>This budget tool is for illustrative purposes only.<br>
 All prices are inclusive of VAT.  Please note our prices and products may change from time to time in line with supplier availability.</p>
     <p>We look forward to meeting with you at Upton Barn.</p>
@@ -241,13 +242,13 @@ All prices are inclusive of VAT.  Please note our prices and products may change
 		  
 		
   
-   <? include 'food.php' ?>
+   <?php include 'food.php' ?>
   
   
   
-    <? //include 'step1.php' ?>
-     <? // include 'step2.php' ?>
-     <? include 'step3.php' ?>
+    <?php //include 'step1.php' ?>
+     <?php // include 'step2.php' ?>
+     <?php include 'step3.php' ?>
   </form>
  
 <form role="form" action="payment-schedule.php" method="post" id="pass_to_payment_schedule_form">
@@ -290,7 +291,7 @@ All prices are inclusive of VAT.  Please note our prices and products may change
 			<li>Accommodation (sleeps 14): <span id="accommodation">£900</span></li>
             </ul>
 
-			<? /*
+			<?php /*
             <div id="food">
           <div class="subheader">
             <h3>Food package</h3>
@@ -299,7 +300,7 @@ All prices are inclusive of VAT.  Please note our prices and products may change
           	<li id="caterer-selected"></li>
             <li><div id="package-selected" style="display:inline"></div> <span id="totalFood">£0</span></li>
             <!--<li style="font-size:12px;line-height: 16px;margin-top: 10px; width: 203px;">--><li id="indicative-note" style="font-size:12px;line-height: 16px;margin-top: 10px; width: 100%">These prices are for indicative purposes. Final costs are subject to an agreement with your chosen caterer.</li>
-            <? if($midweek_discount != 0){echo "<li id='midweek-discount-message'><sup><strong>Midweek discount of 10% applied</strong></sup></li>";} ?>
+            <?php if($midweek_discount != 0){echo "<li id='midweek-discount-message'><sup><strong>Midweek discount of 10% applied</strong></sup></li>";} ?>
             </ul>
             </div>
 			*/ ?>
@@ -466,7 +467,7 @@ var ceremonyPrice = 150
 				var discount = parseFloat((foodTotal / 100) * (-midweekDiscount));
 			}else{
 				// if user has initially landed on the page
-				var discount = parseFloat((foodTotal / 100) * <?//=$midweek_discount?>)
+				var discount = parseFloat((foodTotal / 100) * <?php //=$midweek_discount?>)
 			}
 			// /apply midweek discount (if applicable)
 			*/
@@ -644,7 +645,7 @@ var ceremonyPrice = 150
 				var discount = parseFloat((foodTotal / 100) * (-midweekDiscount));
 			}else{
 				// if user has initially landed on the page
-				var discount = parseFloat((foodTotal / 100) * <?//=$midweek_discount?>)
+				var discount = parseFloat((foodTotal / 100) * <?php //=$midweek_discount?>)
 			}
 			// /apply midweek discount (if applicable)
 
@@ -695,7 +696,7 @@ var ceremonyPrice = 150
 				var discount = parseFloat((foodTotal / 100) * (-midweekDiscount));
 			}else{
 				// if user has initially landed on the page
-				var discount = parseFloat((foodTotal / 100) * <?//=$midweek_discount?>)
+				var discount = parseFloat((foodTotal / 100) * <?php //=$midweek_discount?>)
 			}
 			// /apply midweek discount (if applicable)
 			
