@@ -388,10 +388,12 @@ All prices are inclusive of VAT.  Please note our prices and products may change
         <h4 class="modal-title">Try another wedding date</h4>
       </div>
       <div class="modal-body">
-        <iframe src="https://www.uptonbarn.com/calendar/public/weddingCal.htm" frameborder="0" allowfullscreen scrolling="no" id="calIframe"></iframe>
+        <iframe src="http://localhost:8001/calendar/public/weddingCal.htm" frameborder="0" allowfullscreen scrolling="no" id="calIframe"></iframe>
       </div>
       <div class="modal-footer" style="text-align: center;">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Select date and return to budget tool</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" id="select-full-day-wedding" disabled>Confirm new date</button>
+        <button type="button" class="btn btn-primary" id="select-twilight-wedding" disabled>Select Twilight Wedding</button>
+        <button type="button" class="btn btn-primary" id="select-micro-wedding" disabled>Select Micro Wedding</button>
       </div>
     </div>
   </div>
@@ -428,7 +430,17 @@ All prices are inclusive of VAT.  Please note our prices and products may change
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script>
 $(document).ready(function () {
-	
+
+// Listen for calendar.dateSelected event from iframe via postMessage
+window.addEventListener('message', function(e) {
+	if (e.data && e.data.type === 'calendar.dateSelected') {
+		// Enable/disable buttons based on availability
+		$('#select-full-day-wedding').prop('disabled', !e.data.isFullDayAvailable);
+		$('#select-twilight-wedding').prop('disabled', !e.data.isTwilightAvailable);
+		$('#select-micro-wedding').prop('disabled', !e.data.isMicroAvailable);
+	}
+});
+
 var foodTotal 
 var catererEveningGuestPrice
 var eveningGuestPrice
