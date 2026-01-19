@@ -388,7 +388,7 @@ All prices are inclusive of VAT.  Please note our prices and products may change
         <h4 class="modal-title">Try another wedding date</h4>
       </div>
       <div class="modal-body">
-        <iframe src="/calendar/public/weddingCal.htm" frameborder="0" allowfullscreen scrolling="no" id="calIframe"></iframe>
+        <iframe src="/calendar_new/public/weddingCal.htm" frameborder="0" allowfullscreen scrolling="no" id="calIframe"></iframe>
       </div>
       <div class="modal-footer" style="text-align: center;">
         <button type="button" class="btn btn-primary" data-dismiss="modal" id="select-full-day-wedding" disabled>Confirm new date</button>
