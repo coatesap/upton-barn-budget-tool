@@ -907,22 +907,7 @@ $('#courses').on('change', function () {
 // FOOD PRICES
 
 const pricingMatrix = {
-  mulberry: {
-    "stable-barn": {
-      "2 Courses + Evening Food": 1,
-      "Canapes + 2 Courses + Evening Food": 75,
-      "3 Courses + Evening Food": 72,
-      "Canapes + 3 Courses + Evening Food": 82
-    },
-    "foundry": {
-      "2 Courses + Evening Food": 63,
-      "Canapes + 2 Courses + Evening Food": 2,
-      "3 Courses + Evening Food": 70,
-      "Canapes + 3 Courses + Evening Food": 80
-    }
-  },
-
-  pickleshack: {
+  figandsmoke: {
     "stable-barn": {
       "2 Courses + Evening Food": 60,
       "Canapes + 2 Courses + Evening Food": 70,
@@ -934,6 +919,21 @@ const pricingMatrix = {
       "Canapes + 2 Courses + Evening Food": 68,
       "3 Courses + Evening Food": 65,
       "Canapes + 3 Courses + Evening Food": 75
+    }
+  },
+  
+    milkshed: {
+    "stable-barn": {
+      "2 Courses + Evening Food": 55,
+      "Canapes + 2 Courses + Evening Food": 65,
+      "3 Courses + Evening Food": 62,
+      "Canapes + 3 Courses + Evening Food": 72
+    },
+    "foundry": {
+      "2 Courses + Evening Food": 55,
+      "Canapes + 2 Courses + Evening Food": 65,
+      "3 Courses + Evening Food": 62,
+      "Canapes + 3 Courses + Evening Food": 4
     }
   },
 
@@ -952,28 +952,14 @@ const pricingMatrix = {
         "Canapes + 3 Courses + Evening Food": 75
       }
     }
-  },
-
-  other: {
-    "stable-barn": {
-      "2 Courses + Evening Food": 55,
-      "Canapes + 2 Courses + Evening Food": 65,
-      "3 Courses + Evening Food": 62,
-      "Canapes + 3 Courses + Evening Food": 72
-    },
-    "foundry": {
-      "2 Courses + Evening Food": 55,
-      "Canapes + 2 Courses + Evening Food": 65,
-      "3 Courses + Evening Food": 62,
-      "Canapes + 3 Courses + Evening Food": 4
-    }
   }
+
+
 };
 
 const drinksServicePricing = {
-  mulberry: 10,
-  pickleshack: 11,
-  other: 13,
+  figandsmoke: 11,
+  milkshed: 13,
 
   firemade: {
     "50-79": 12,
