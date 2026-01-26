@@ -401,6 +401,22 @@ All prices are inclusive of VAT.  Please note our prices and products may change
   </div>
 </div>
 
+<!-- Hidden forms for date selection modal -->
+<form id="edit-date-full-day-form" action="index.php" method="post" style="display:none;">
+    <input type="hidden" name="date" id="edit-date-full-day">
+    <input type="hidden" name="price" id="edit-price-full-day">
+</form>
+
+<form id="edit-date-twilight-form" action="index.php" method="post" style="display:none;">
+    <input type="hidden" name="date" id="edit-date-twilight">
+    <input type="hidden" name="price" id="edit-price-twilight">
+</form>
+
+<form id="edit-date-micro-form" action="index.php" method="post" style="display:none;">
+    <input type="hidden" name="date" id="edit-date-micro">
+    <input type="hidden" name="price" id="edit-price-micro">
+</form>
+
 
 
 <div id="paymentscheduleModal" class="modal fade" tabindex="-1" role="dialog">
@@ -419,22 +435,6 @@ All prices are inclusive of VAT.  Please note our prices and products may change
     </div>
   </div>
 </div>
-
-<!-- Hidden forms for date selection modal -->
-<form id="edit-date-full-day-form" action="index.php" method="post" style="display:none;">
-    <input type="hidden" name="date" id="edit-date-full-day">
-    <input type="hidden" name="price" id="edit-price-full-day">
-</form>
-
-<form id="edit-date-twilight-form" action="twilight.php" method="post" style="display:none;">
-    <input type="hidden" name="date" id="edit-date-twilight">
-    <input type="hidden" name="price" id="edit-price-twilight">
-</form>
-
-<form id="edit-date-micro-form" action="micro.php" method="post" style="display:none;">
-    <input type="hidden" name="date" id="edit-date-micro">
-    <input type="hidden" name="price" id="edit-price-micro">
-</form>
 
 <div id="topNotification" class="alert alert-danger">
   <!--<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
