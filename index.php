@@ -5,7 +5,9 @@ error_reporting(0);
 //include "includes/dbconn.php";
 
 if($_REQUEST['date']){
-	$wedding_date = $_REQUEST['date'];
+	$wedding_date_raw = $_REQUEST['date'];
+	// Format ISO date (YYYY-MM-DD) to friendly format (e.g., "3rd March 2026")
+	$wedding_date = date('jS F Y', strtotime($wedding_date_raw));
 }else{
 	$wedding_date = "NO DATE SELECTED";
 	//$wedding_date = "2nd March 2026"; // monday
@@ -418,7 +420,21 @@ All prices are inclusive of VAT.  Please note our prices and products may change
   </div>
 </div>
 
+<!-- Hidden forms for date selection modal -->
+<form id="edit-date-full-day-form" action="index.php" method="post" style="display:none;">
+    <input type="hidden" name="date" id="edit-date-full-day">
+    <input type="hidden" name="price" id="edit-price-full-day">
+</form>
 
+<form id="edit-date-twilight-form" action="twilight.php" method="post" style="display:none;">
+    <input type="hidden" name="date" id="edit-date-twilight">
+    <input type="hidden" name="price" id="edit-price-twilight">
+</form>
+
+<form id="edit-date-micro-form" action="micro.php" method="post" style="display:none;">
+    <input type="hidden" name="date" id="edit-date-micro">
+    <input type="hidden" name="price" id="edit-price-micro">
+</form>
 
 <div id="topNotification" class="alert alert-danger">
   <!--<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -433,10 +449,16 @@ $(document).ready(function () {
 
 // Listen for calendar.dateSelected event from iframe via postMessage
 var selectedCalendarDate = null;
+var selectedFullDayPrice = null;
+var selectedTwilightPrice = null;
+var selectedMicroPrice = null;
 
 window.addEventListener('message', function(e) {
 	if (e.data && e.data.type === 'calendar.dateSelected') {
 		selectedCalendarDate = e.data.date;
+		selectedFullDayPrice = e.data.fullDayPrice || '';
+		selectedTwilightPrice = e.data.twilightPrice || '';
+		selectedMicroPrice = e.data.microPrice || '';
 
 		// Enable/disable buttons based on availability
 		$('#select-full-day-wedding').prop('disabled', !e.data.isFullDayAvailable);
@@ -445,22 +467,28 @@ window.addEventListener('message', function(e) {
 	}
 });
 
-// Button click handlers
+// Button click handlers - submit forms with POST data
 $('#select-full-day-wedding').click(function() {
 	if (selectedCalendarDate) {
-		window.location.href = 'index.php?date=' + encodeURIComponent(selectedCalendarDate);
+		$('#edit-date-full-day').val(selectedCalendarDate);
+		$('#edit-price-full-day').val(selectedFullDayPrice);
+		$('#edit-date-full-day-form').submit();
 	}
 });
 
 $('#select-twilight-wedding').click(function() {
 	if (selectedCalendarDate) {
-		window.location.href = 'twilight.php?date=' + encodeURIComponent(selectedCalendarDate);
+		$('#edit-date-twilight').val(selectedCalendarDate);
+		$('#edit-price-twilight').val(selectedTwilightPrice);
+		$('#edit-date-twilight-form').submit();
 	}
 });
 
 $('#select-micro-wedding').click(function() {
 	if (selectedCalendarDate) {
-		window.location.href = 'micro.php?date=' + encodeURIComponent(selectedCalendarDate);
+		$('#edit-date-micro').val(selectedCalendarDate);
+		$('#edit-price-micro').val(selectedMicroPrice);
+		$('#edit-date-micro-form').submit();
 	}
 });
 
